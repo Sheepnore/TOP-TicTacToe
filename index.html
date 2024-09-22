@@ -7,23 +7,40 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <script src="./index.js"></script>
-
   <div class="body">
     <div class="gameDisplay">
       <h1 class="title">Tic Tac Toe</h1>
+      <div class="players">
+        <div class="playerOne">
+          Player1: <input type="text" name="playerOne" id="playerOne">
+          <select name="symbol" id="playerOneSym">
+            <option value="O">O</option>
+            <option value="X">X</option>
+          </select>
+        </div>
+        <div class="playerTwo">
+          Player2: <input type="text" name="playerTwo" id="playerTwo">
+          <select name="symbol" id="playerTwoSym">
+            <option value="O">O</option>
+            <option value="X">X</option>
+          </select>
+        </div>
+      </div>
+      <div><button class="startGame">Start</button></div>
+      
       <div class="gameboard container">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
+        <div class="cell"> </div>
       </div>
     </div>
   </div>
+  <script src="./index.js"></script>
 </body>
 </html>

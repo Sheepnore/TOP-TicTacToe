@@ -23,6 +23,11 @@
   gap: 1rem;
 }
 
+.players{
+  display: flex;
+  justify-content: space-around;
+}
+
 .gameboard{
   display: grid;
   grid-template-rows: repeat(3, 1fr);
