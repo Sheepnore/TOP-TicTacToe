@@ -44,31 +44,41 @@ function renderPage(){
   let cells = document.querySelectorAll('.cell');
   cells = [...cells];
 
+  // function disableClickEvent(cell){
+  //   if (cell.innerHTML !== ''){
+  //     cell.removeEventListener('click',handleClick);
+  //   };
+  // };
+
   function startGame(){
     gameboard.forEach(data=>{
       const dataIndex = gameboard.indexOf(data);
       console.log(dataIndex);
+
       cells.forEach(cell=>{
         const cellIndex = cells.indexOf(cell);
         if (cellIndex === dataIndex){
-          cell.addEventListener('click',()=>{
+          cell.addEventListener('click',function handleClick(){
             if (isPlayerTwoTurn){
               gameboard[cellIndex] = players.playerTwo.playerTwoSym;
               cell.innerHTML = players.playerTwo.playerTwoSym;
               isPlayerTwoTurn = !isPlayerTwoTurn;
-              
+              cell.removeEventListener('click',handleClick);
             }
             else{
               gameboard[cellIndex] = players.playerOne.playerOneSym;
               cell.innerHTML = players.playerOne.playerOneSym;
               isPlayerTwoTurn = !isPlayerTwoTurn;
-
+              cell.removeEventListener('click',handleClick);
             };
           })
         }
       })
     })
+    
   }
+
+  
 
 };
 renderPage()
