@@ -23,6 +23,16 @@
   gap: 1rem;
 }
 
+.gameDisplay .startGame{
+  font-size: 1rem;
+  padding: .7rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px gray;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .players{
   display: flex;
   justify-content: space-around;
@@ -41,4 +51,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.body .winningDialog{
+  margin: 40vh 0;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 30vw;
+  height: 30vh;
+
+  padding: 2rem;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px gray;
+  font-size: 2rem;
+}
+
+.body .winningDialog *{
+  margin: 1rem 0 0 0;
+}
+
+.body .winningDialog .closeDialogButton{
+  font-size: 2rem;
+  padding: .5rem;
+  background-color: #fe4d4d;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px gray;
+  cursor: pointer;
 }

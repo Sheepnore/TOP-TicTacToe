@@ -12,17 +12,17 @@
       <h1 class="title">Tic Tac Toe</h1>
       <div class="players">
         <div class="playerOne">
-          Player1: <input type="text" name="playerOne" id="playerOne">
+          Player1: <input type="text" name="playerOne" id="playerOne" required>
           <select name="symbol" id="playerOneSym">
-            <option value="O">O</option>
+            <option value="O" selected class="playerOneO">O</option>
             <option value="X">X</option>
           </select>
         </div>
         <div class="playerTwo">
-          Player2: <input type="text" name="playerTwo" id="playerTwo">
+          Player2: <input type="text" name="playerTwo" id="playerTwo" required>
           <select name="symbol" id="playerTwoSym">
             <option value="O">O</option>
-            <option value="X">X</option>
+            <option value="X" selected>X</option>
           </select>
         </div>
       </div>
@@ -40,6 +40,12 @@
         <div class="cell"></div>
       </div>
     </div>
+    <dialog class="winningDialog">
+      <div class="playerName"></div>
+      <div>
+       <button class="closeDialogButton">close</button>
+      </div>
+    </dialog>
   </div>
   <script src="./index.js"></script>
 </body>
