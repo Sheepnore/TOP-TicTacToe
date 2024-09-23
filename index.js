@@ -5,65 +5,70 @@ function renderPage(){
     '6','7','8',
   ];
 
-  let cells = document.querySelectorAll('.cell');
-  cells = [...cells];
-
-  gameboard.forEach(data=>{
-    const dataIndex = gameboard.indexOf(data);
-    console.log(dataIndex);
-    cells.forEach(cell=>{
-      const cellIndex = cells.indexOf(cell);
-      if (cellIndex === dataIndex){
-        cell.addEventListener('click',()=>{
-          gameboard[cellIndex] = 'X';
-          console.log(gameboard);
-        })
-      }
-    })
-  })
   
-
-
-  // cells.forEach(cell=>{
-  //   cell.addEventListener('click',()=>{
-  //     console.log('X');
-  //   });
-  // });
-
-  function startGame(){
-    const startButton = document.querySelector('.startGame');
-    startButton.addEventListener('click',()=>{
-      createPlayers();
-    })
-  }
-  startGame();
-
   function createPlayers(){
     const playerOneElem = document.querySelector('#playerOne');
     const playerOneName  = playerOneElem.value;
     const playerOneSelect = document.querySelector('#playerOneSym');
     const playerOneSym = playerOneSelect.value;
-
+    
     const playerTwoElem = document.querySelector('#playerTwo');
     const playerTwoName  = playerTwoElem.value;
     const playerTwoSelect = document.querySelector('#playerTwoSym');
     const playerTwoSym = playerTwoSelect.value;
-
-
-    const players = [
-      {playerOneName,
-        playerOneSym
-      },
-      {
-        playerTwoName,
-        playerTwoSym,
-      }
-    ]
-    console.log(players);
-    return {players};
+    
+    const playerOne =
+    {
+      playerOneName,
+      playerOneSym,
+    }
+    const playerTwo =
+    {
+      playerTwoName,
+      playerTwoSym,
+    }
+    return {playerOne,playerTwo};
   };
+  
+  let isPlayerTwoTurn = false;
+  let players;
+  const startButton = document.querySelector('.startGame');
+  startButton.addEventListener('click',()=>{
+     players = createPlayers();
+     console.log(players);
+     console.log(players.playerOne.playerOneSym);
+     startGame();
+  });
 
 
+  let cells = document.querySelectorAll('.cell');
+  cells = [...cells];
+
+  function startGame(){
+    gameboard.forEach(data=>{
+      const dataIndex = gameboard.indexOf(data);
+      console.log(dataIndex);
+      cells.forEach(cell=>{
+        const cellIndex = cells.indexOf(cell);
+        if (cellIndex === dataIndex){
+          cell.addEventListener('click',()=>{
+            if (isPlayerTwoTurn){
+              gameboard[cellIndex] = players.playerTwo.playerTwoSym;
+              cell.innerHTML = players.playerTwo.playerTwoSym;
+              isPlayerTwoTurn = !isPlayerTwoTurn;
+              
+            }
+            else{
+              gameboard[cellIndex] = players.playerOne.playerOneSym;
+              cell.innerHTML = players.playerOne.playerOneSym;
+              isPlayerTwoTurn = !isPlayerTwoTurn;
+
+            };
+          })
+        }
+      })
+    })
+  }
 
 };
 renderPage()
